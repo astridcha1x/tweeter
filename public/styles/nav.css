@@ -1,0 +1,31 @@
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 120px;
+  width: 100%;
+  padding: 1.5em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  background-color: #ff6f96; /* nav bg color */
+  color: #fff; /* text color */
+}
+
+span.title {
+  font-family: 'Bungee', sans-serif;
+  font-size: 2em;
+}
+
+span.nav-content {
+  display: flex;
+  justify-content: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+ i {
+  display: flex;
+  justify-content: center;
+  color: #ffd500;
+}
