@@ -1,7 +1,7 @@
 textarea {
   width: 100%;  
   border: none;  
-  background: transparent;
+  background-color: white;
   border-bottom: 2px solid #ffd500;
   font-family: "Source Sans Pro", sans-serif;
   line-height: 1.50;

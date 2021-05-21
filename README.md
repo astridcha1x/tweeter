@@ -14,4 +14,13 @@ This repository is the starter code for the project: Students will fork and clon
 ## Dependencies
 
 - Express
+- Body-Parser
+- md5
+- dayjs
 - Node 5.10.x or above
+
+## Final Product
+!["Main Feed"]()
+!["Compose Tweet (w/ Character Counter)"]()
+!["Error Message"]()
+!["Mobile View"]()
