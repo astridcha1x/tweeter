@@ -6,6 +6,12 @@
 
 $(document).ready(function() {
 
+// Cross-Site Scripting //
+const escape = function(text) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(text));
+  return div.innerHTML;
+};
 
 // Render Tweets //
 const renderTweets = function (tweets) {
@@ -37,7 +43,7 @@ const createTweetElement = function (tweet) {
 
   let $tweeted = `
     <div class="text-tweet">
-      <p>${tweetContent}</p>
+      <p>${escape(tweetContent)}</p>
       </div>`
 
   let $footer = `
@@ -61,25 +67,40 @@ const createTweetElement = function (tweet) {
 };
 
 $("#tweet-post").submit(function(event) {
-  const textData = ($(this).serialize());
+  const $form = $(this);
+  const $input = $form.find("textarea");
+  const textData = $input.serialize();
   const textRemaining = $("#tweet-text").val();
   event.preventDefault();
 
 
-  // FORM VALIDATION //
+
   if (textRemaining.length > 140) {
-    alert("You've exceeded the maximum of characters for a tweet!");
+    $("#exceed-error").slideDown("slow");
     return;
   }
 
-  if (textRemaining === "" || textRemaining === null) {
-    alert("Your tweet is empty!")
+  if (!textRemaining) {
+    $("#blank-error").slideDown("slow");
+    return;
   }
 
-  $.post("/tweets", textData)
-  .then(loadTweets)
-  $("#tweet-text").val("");
-  
+
+  $.ajax({
+    type: "POST",
+    url: "/tweets",
+    data: textData,
+  })
+    .then(() => {
+      loadTweets();
+      $input.val("");
+    $(".error-msg").slideUp("");      
+    })
+    .catch(err => {
+      console.log("AJAX error caught!");
+      console.log(err);
+    });
+
 });
 
 const loadTweets = function() {
