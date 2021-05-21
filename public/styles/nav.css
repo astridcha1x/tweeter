@@ -9,8 +9,8 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  background-color: #ff6f96; /* nav bg color */
-  color: #fff; /* text color */
+  background-color: #ff6f96;
+  color: #fff;
 }
 
 span.title {
@@ -24,7 +24,7 @@ span.nav-content {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
- i {
+ nav .fas {
   display: flex;
   justify-content: center;
   color: #ffd500;

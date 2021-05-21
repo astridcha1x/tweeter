@@ -1,0 +1,24 @@
+.profile-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff7f9;
+  background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
+  position: relative;
+}
+
+.profile-name {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.profile-pic {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}

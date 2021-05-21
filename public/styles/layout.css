@@ -16,7 +16,7 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: #fff7f9;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -24,3 +24,68 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ main {
+   width: 90%;
+   margin: auto;
+ }
+
+.wrap-content {
+  display: flex;
+  flex-direction: row;
+  padding: 5vw;
+}
+
+@media (min-width: 120px) and (max-width: 490px) {
+  .wrap-content {
+    display: flex;
+    flex-direction: column;    
+    width: 400px;
+  }
+}
+
+@media (min-width: 491px) and (max-width: 800px) {
+  .wrap-content {
+    display: flex;
+    flex-direction: column;    
+    width: 600px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+
+  nav {
+    height: 100px;
+    background-color: #ff6f96;
+    color: #fff;
+  }
+
+  .profile-header {
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .wrap-header {
+    width: 80%;
+    position: relative;
+    padding: 40px 80px;
+    margin: 0 auto;
+  }
+
+  #tweet-post {
+    position: relative;
+    padding: 40px;
+    margin: 40px auto;
+  }
+
+  #tweet-text {
+    position: relative;
+    margin: 25px auto;
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+}

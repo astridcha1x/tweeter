@@ -6,6 +6,10 @@
 
 $(document).ready(function() {
 
+// Time Stamp with Dayj //
+dayjs().format();
+dayjs.extend(window.dayjs_plugin_relativeTime);
+
 // Cross-Site Scripting //
 const escape = function(text) {
   let div = document.createElement("div");
@@ -16,9 +20,9 @@ const escape = function(text) {
 // Render Tweets //
 const renderTweets = function (tweets) {
 
-  $("#tweet-container").empty();
+  $(".wrap-article").empty();
   for (const tweet of tweets) {
-    $(".tweets-container").prepend(createTweetElement(tweet));
+    $(".wrap-article").prepend(createTweetElement(tweet));
   };
 
 };
@@ -30,6 +34,7 @@ const createTweetElement = function (tweet) {
   const profileHandle = tweet.user.handle;
   const tweetContent = tweet.content.text;
   const tweetTime = tweet.created_at;
+  const time = dayjs(tweetTime).fromNow();
 
   let $header = `
       <header>
@@ -48,7 +53,7 @@ const createTweetElement = function (tweet) {
 
   let $footer = `
     <footer class="tweet-footer">
-      <span data-time="${tweetTime}" id="tweet-time" class="time-since-tweet"></span>
+      <span data-time="${time}" class="time-since-tweet">${time}</span>
         <div class="tweet-icons">
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
@@ -57,7 +62,7 @@ const createTweetElement = function (tweet) {
     </footer>`
 
   return `
-    <article>
+    <article class="tweets-container">
       ${$header}
       ${$tweeted}
       ${$footer}
@@ -66,14 +71,13 @@ const createTweetElement = function (tweet) {
 
 };
 
+// Event Handler + AJAX //
 $("#tweet-post").submit(function(event) {
   const $form = $(this);
   const $input = $form.find("textarea");
   const textData = $input.serialize();
   const textRemaining = $("#tweet-text").val();
   event.preventDefault();
-
-
 
   if (textRemaining.length > 140) {
     $("#exceed-error").slideDown("slow");
@@ -84,7 +88,6 @@ $("#tweet-post").submit(function(event) {
     $("#blank-error").slideDown("slow");
     return;
   }
-
 
   $.ajax({
     type: "POST",
@@ -120,14 +123,3 @@ const loadTweets = function() {
 loadTweets();
 
 });
-
-// TIMEAGO base //
-$(function () {
-  console.log("ready!");
-  const tweetTime = $("#tweet-time");
-  const time = tweetTime.data("time");
-  console.log(time);
-  const timeAgoTime = timeago.format(time);
-  tweetTime.append(timeAgoTime);
-});
-
