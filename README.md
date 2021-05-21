@@ -20,7 +20,7 @@ This repository is the starter code for the project: Students will fork and clon
 - Node 5.10.x or above
 
 ## Final Product
-!["Main Feed"]()
-!["Compose Tweet (w/ Character Counter)"]()
-!["Error Message"]()
-!["Mobile View"]()
+!["Main Feed"](https://github.com/astridcha1x/tweeter/blob/master/docs/main-feed.png)
+!["Compose Tweet (w/ Character Counter)"](https://github.com/astridcha1x/tweeter/blob/master/docs/char-counter-new-tweet.png)
+!["Error Message"](https://github.com/astridcha1x/tweeter/blob/master/docs/error-msg.png)
+!["Mobile View"](https://github.com/astridcha1x/tweeter/blob/master/docs/mobile-view.png)
